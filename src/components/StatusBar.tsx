@@ -105,18 +105,18 @@ export default function StatusBar() {
     >
       <div className="flex items-center justify-between gap-4 px-4 py-1.5 text-[10px] uppercase tracking-[0.22em] md:px-10">
         <div className="flex items-center gap-3 truncate">
-          <span className={dark ? 'text-bone/45' : 'text-warm-gray'}>
+          <span className={dark ? 'text-bone/45' : 'text-ash/70'}>
             § {String(idx).padStart(2, '0')}
           </span>
           <span className="truncate">{section.label}</span>
         </div>
         <div className="hidden items-center gap-4 md:flex">
           <span>scroll {String(Math.round(progress * 100)).padStart(3, '0')}%</span>
-          <span className={dark ? 'text-bone/45' : 'text-warm-gray'}>·</span>
+          <span className={dark ? 'text-bone/45' : 'text-ash/70'}>·</span>
           <span>fps {fps}</span>
         </div>
         <div className="flex items-center gap-3">
-          <span className={dark ? 'text-bone/45' : 'text-warm-gray'}>utc{(() => {
+          <span className={dark ? 'text-bone/45' : 'text-ash/70'}>utc{(() => {
             const off = -new Date().getTimezoneOffset() / 60;
             return (off >= 0 ? '+' : '') + off;
           })()}</span>

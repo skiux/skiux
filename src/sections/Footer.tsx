@@ -41,13 +41,13 @@ export default function Footer() {
               X ↗
             </a>
           )}
-          <span className="mt-4 text-[10px] uppercase tracking-[0.28em] text-warm-gray">
+          <span className="mt-4 text-[10px] uppercase tracking-[0.28em] text-ash/75">
             {site.location} ·
           </span>
         </div>
 
         {/* Bottom row: monospace meta */}
-        <div className="col-span-12 mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-hairline pt-5 text-[10px] uppercase tracking-[0.28em] text-warm-gray md:col-start-2 md:col-end-12 md:mt-16" style={{ fontFamily: 'var(--font-mono)' }}>
+        <div className="col-span-12 mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-hairline pt-5 text-[10px] uppercase tracking-[0.28em] text-ash/75 md:col-start-2 md:col-end-12 md:mt-16" style={{ fontFamily: 'var(--font-mono)' }}>
           <span>© 2026 {site.name}</span>
           <LiveClock />
           <span>v0.0.1 · index 001</span>

@@ -27,7 +27,7 @@ export default function Projects() {
             <Reveal key={p.numeral} delay={0.08 * i} as="li">
               <div className="flex items-baseline gap-8 border-t border-hairline py-10 first:border-t-0 md:py-14">
                 <div
-                  className="w-12 shrink-0 text-[14px] tracking-[0.18em] text-warm-gray md:w-20 md:text-[15px]"
+                  className="w-12 shrink-0 text-[14px] tracking-[0.18em] text-ash/75 md:w-20 md:text-[15px]"
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
                   {p.numeral}
@@ -52,7 +52,7 @@ export default function Projects() {
                   </p>
                 </div>
                 <div
-                  className="hidden shrink-0 self-start text-[11px] tracking-[0.22em] text-warm-gray md:block"
+                  className="hidden shrink-0 self-start text-[11px] tracking-[0.22em] text-ash/75 md:block"
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
                   [ TBD ]

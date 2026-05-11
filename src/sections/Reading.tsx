@@ -44,7 +44,7 @@ export default function Reading() {
             <Reveal key={r.title} delay={0.04 * i} as="li">
               <div className="flex items-baseline gap-6 border-t border-hairline py-6 first:border-t-0 md:py-7">
                 <div
-                  className="w-16 shrink-0 text-[10px] uppercase tracking-[0.32em] text-warm-gray md:w-20"
+                  className="w-16 shrink-0 text-[10px] uppercase tracking-[0.32em] text-ash/75 md:w-20"
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
                   {r.kind}

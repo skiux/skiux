@@ -50,7 +50,7 @@ export default function Now() {
                   </p>
                 </div>
                 <div
-                  className="shrink-0 text-[11px] tracking-[0.22em] text-warm-gray"
+                  className="shrink-0 text-[11px] tracking-[0.22em] text-ash/75"
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
                   {item.since}

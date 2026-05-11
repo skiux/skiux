@@ -1,14 +1,10 @@
 import { useState } from 'react';
-import Hero from './sections/Hero';
-import LabField01 from './sections/LabField01';
-import Manifesto from './sections/Manifesto';
-import Stats from './sections/Stats';
-import LabField02 from './sections/LabField02';
-import Now from './sections/Now';
-import Reading from './sections/Reading';
-import Projects from './sections/Projects';
-import Colophon from './sections/Colophon';
-import Footer from './sections/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Home from './pages/Home';
+import Notes from './pages/Notes';
+import Lab from './pages/Lab';
+import Work from './pages/Work';
 
 import TopNav from './components/TopNav';
 import StatusBar from './components/StatusBar';
@@ -16,12 +12,13 @@ import CommandPalette from './components/CommandPalette';
 import ScrollProgress from './components/ScrollProgress';
 import CustomCursor from './components/CustomCursor';
 import KeyboardHints from './components/KeyboardHints';
+import SmoothScroll from './components/SmoothScroll';
 
-export default function App() {
+function Shell() {
   const [cmdOpen, setCmdOpen] = useState(false);
-
   return (
     <>
+      <SmoothScroll />
       <CustomCursor />
       <ScrollProgress />
       <TopNav onOpenCommand={() => setCmdOpen(true)} />
@@ -30,17 +27,21 @@ export default function App() {
       <CommandPalette open={cmdOpen} setOpen={setCmdOpen} />
 
       <main className="bg-bone text-charcoal">
-        <Hero />
-        <LabField01 />
-        <Manifesto />
-        <Stats />
-        <LabField02 />
-        <Now />
-        <Reading />
-        <Projects />
-        <Colophon />
-        <Footer />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/notes" element={<Notes />} />
+          <Route path="/lab" element={<Lab />} />
+          <Route path="/work" element={<Work />} />
+        </Routes>
       </main>
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Shell />
+    </BrowserRouter>
   );
 }

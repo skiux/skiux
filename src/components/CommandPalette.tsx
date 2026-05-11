@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { site } from '../content/site';
 
 type Cmd = { id: string; label: string; hint?: string; run: () => void };
@@ -24,13 +25,26 @@ export default function CommandPalette({
   const [q, setQ] = useState('');
   const [hi, setHi] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   const commands: Cmd[] = useMemo(() => {
-    const navCmds: Cmd[] = site.nav.map((n) => ({
-      id: 'nav:' + n.href,
-      label: 'Go to ' + n.label,
+    const routeCmds: Cmd[] = site.nav.map((n) => ({
+      id: 'route:' + n.href,
+      label: 'Go to ' + n.label + (n.soon ? ' (soon)' : ''),
       hint: n.href,
-      run: () => scrollTo(n.href),
+      run: () => navigate(n.href),
+    }));
+    const anchorCmds: Cmd[] = site.homeAnchors.map((a) => ({
+      id: 'anchor:' + a.href,
+      label: 'Jump · ' + a.label,
+      hint: a.href,
+      run: () => {
+        if (window.location.pathname !== '/') {
+          navigate('/' + a.href);
+        } else {
+          scrollTo(a.href);
+        }
+      },
     }));
     const meta: Cmd[] = [
       { id: 'open:github', label: 'Open GitHub', hint: site.github, run: () => window.open(site.github, '_blank') },
@@ -38,8 +52,8 @@ export default function CommandPalette({
       { id: 'top', label: 'Scroll to top', hint: 'home', run: () => window.scrollTo({ top: 0, behavior: 'smooth' }) },
       { id: 'bottom', label: 'Scroll to bottom', hint: 'end', run: () => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' }) },
     ];
-    return [...navCmds, ...meta];
-  }, []);
+    return [...routeCmds, ...anchorCmds, ...meta];
+  }, [navigate]);
 
   const filtered = useMemo(() => {
     const s = q.trim().toLowerCase();
@@ -115,7 +129,7 @@ export default function CommandPalette({
           >
             {/* Top bar — log-line like */}
             <div
-              className="flex items-baseline justify-between border-b border-hairline px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-warm-gray"
+              className="flex items-baseline justify-between border-b border-hairline px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-ash/75"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
               <span>command :: palette</span>
@@ -125,7 +139,7 @@ export default function CommandPalette({
             {/* Input */}
             <div className="flex items-center gap-3 border-b border-hairline px-4 py-3">
               <span
-                className="text-[12px] text-warm-gray"
+                className="text-[12px] text-ash/75"
                 style={{ fontFamily: 'var(--font-mono)' }}
                 aria-hidden
               >
@@ -146,7 +160,7 @@ export default function CommandPalette({
             <ul className="max-h-[42vh] overflow-y-auto py-1" role="listbox">
               {filtered.length === 0 && (
                 <li
-                  className="px-4 py-3 text-[12px] text-warm-gray"
+                  className="px-4 py-3 text-[12px] text-ash/75"
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
                   no match — try another word
@@ -166,17 +180,17 @@ export default function CommandPalette({
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
                   <span className="flex items-center gap-3 truncate">
-                    <span className={i === hi ? 'text-ink' : 'text-warm-gray'}>›</span>
+                    <span className={i === hi ? 'text-ink' : 'text-ash/75'}>›</span>
                     <span className="truncate">{c.label}</span>
                   </span>
-                  {c.hint && <span className="hidden truncate text-[10px] uppercase tracking-[0.22em] text-warm-gray md:inline">{c.hint}</span>}
+                  {c.hint && <span className="hidden truncate text-[10px] uppercase tracking-[0.22em] text-ash/75 md:inline">{c.hint}</span>}
                 </li>
               ))}
             </ul>
 
             {/* Footer hint */}
             <div
-              className="flex items-center justify-between border-t border-hairline px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-warm-gray"
+              className="flex items-center justify-between border-t border-hairline px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-ash/75"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
               <span>↑↓ navigate · ⏎ select</span>

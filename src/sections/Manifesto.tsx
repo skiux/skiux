@@ -25,7 +25,7 @@ export default function Manifesto() {
             delay={0.05}
             duration={1.0}
             as="p"
-            className="mt-6 max-w-[28ch] text-balance text-[28px] leading-[1.22] tracking-[-0.02em] text-charcoal md:max-w-[18ch] md:text-[64px] md:leading-[1.05]"
+            className="mt-8 max-w-[28ch] text-balance text-[28px] leading-[1.28] tracking-[-0.015em] text-charcoal md:max-w-[22ch] md:text-[52px] md:leading-[1.12]"
           >
             {site.manifesto}
           </MaskReveal>
@@ -36,13 +36,13 @@ export default function Manifesto() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-10% 0px' }}
             transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 flex flex-wrap gap-x-3 gap-y-2 text-[10px] uppercase tracking-[0.22em] text-warm-gray"
+            className="mt-10 flex flex-wrap gap-x-3 gap-y-2 text-[11px] uppercase tracking-[0.22em] text-ash"
             style={{ fontFamily: 'var(--font-mono)' }}
           >
             {site.hashtags.map((t) => (
               <li
                 key={t}
-                className="border-b border-warm-gray/30 pb-0.5 transition-colors hover:text-charcoal"
+                className="border-b border-ash/40 pb-0.5 transition-colors hover:text-ink hover:border-ink"
                 data-cursor="link"
               >
                 {t}
@@ -55,7 +55,7 @@ export default function Manifesto() {
         <div className="col-span-12 mt-[14vh] md:col-span-7 md:col-start-6 md:mt-[18vh]">
           <Reveal>
             <div
-              className="mb-8 text-[10px] uppercase tracking-[0.32em] text-warm-gray"
+              className="mb-8 text-[10px] uppercase tracking-[0.32em] text-ash/75"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
               — working principles
@@ -66,7 +66,7 @@ export default function Manifesto() {
               <Reveal key={p.n} delay={i * 0.08} as="li">
                 <div className="flex items-baseline gap-6 border-t border-hairline pt-5 md:gap-10">
                   <div
-                    className="w-8 shrink-0 text-[10px] uppercase tracking-[0.22em] text-warm-gray md:w-12"
+                    className="w-8 shrink-0 text-[10px] uppercase tracking-[0.22em] text-ash/75 md:w-12"
                     style={{ fontFamily: 'var(--font-mono)' }}
                   >
                     {p.n}

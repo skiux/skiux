@@ -90,7 +90,7 @@ export default function Stats() {
                     <CountUp to={value} />
                   </div>
                   <div
-                    className="mt-3 text-[10px] uppercase leading-[1.5] tracking-[0.22em] text-warm-gray"
+                    className="mt-3 text-[10px] uppercase leading-[1.5] tracking-[0.22em] text-ash/75"
                     style={{ fontFamily: 'var(--font-mono)' }}
                   >
                     {s.label}

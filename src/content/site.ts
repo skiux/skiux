@@ -10,15 +10,26 @@ export const site = {
   github: 'https://github.com/hupax',
   twitter: '', // TODO
 
-  // The fixed top nav. Order matters.
+  // Fixed top nav — page-level routes. Home is index, the other three are
+  // placeholder pages with curated B&W backdrops until they get real content.
   nav: [
-    { label: 'Index', href: '#top' },
-    { label: 'Field', href: '#field-01' },
+    { label: 'Home',  href: '/',      soon: false },
+    { label: 'Notes', href: '/notes', soon: true  },
+    { label: 'Lab',   href: '/lab',   soon: true  },
+    { label: 'Work',  href: '/work',  soon: true  },
+  ] as ReadonlyArray<{ label: string; href: string; soon: boolean }>,
+
+  // In-page anchors for the home page — used by Command Palette + statusbar.
+  homeAnchors: [
+    { label: 'Index',     href: '#top' },
+    { label: 'Field 01',  href: '#field-01' },
     { label: 'Manifesto', href: '#manifesto' },
-    { label: 'Now', href: '#now' },
-    { label: 'Work', href: '#projects' },
-    { label: 'Reading', href: '#reading' },
-    { label: 'Colophon', href: '#colophon' },
+    { label: 'Stats',     href: '#stats' },
+    { label: 'Field 02',  href: '#field-02' },
+    { label: 'Now',       href: '#now' },
+    { label: 'Reading',   href: '#reading' },
+    { label: 'Work',      href: '#projects' },
+    { label: 'Colophon',  href: '#colophon' },
   ],
 
   manifesto: `I build the unglamorous parts — the storage layers, the consensus protocols, the breadcrumbs that explain why a request was slow at 3 a.m. Most of what I make is invisible by design. This page is one of the few places it is not.`,

@@ -31,7 +31,7 @@ export default function Colophon() {
             <Reveal key={row.label} delay={0.05 * i} as="div">
               <div className="border-t border-hairline pt-4">
                 <dt
-                  className="text-[10px] uppercase tracking-[0.32em] text-warm-gray"
+                  className="text-[10px] uppercase tracking-[0.32em] text-ash/75"
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
                   {row.label}

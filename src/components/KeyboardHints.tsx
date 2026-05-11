@@ -95,7 +95,7 @@ export default function KeyboardHints() {
             className="fixed bottom-16 left-4 z-40 w-72 border border-charcoal/15 bg-bone/95 p-5 backdrop-blur"
           >
             <div
-              className="mb-3 text-[10px] uppercase tracking-[0.28em] text-warm-gray"
+              className="mb-3 text-[10px] uppercase tracking-[0.28em] text-ash/75"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
               Keyboard

@@ -16,7 +16,21 @@ export default function Hero() {
       className="relative h-screen w-screen overflow-hidden text-bone"
       style={{ background: '#14110d' }}
     >
-      {/* WebGL: topographic contour map + sparse hex glyph rain + grain */}
+      {/* Backdrop photo — curated B&W from Unsplash. Slow ken-burns zoom. */}
+      {/* Photo: Eberhard Grossgasteiger — atmospheric fog landscape */}
+      <img
+        src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=2400&q=85&fm=jpg&auto=format&fit=crop"
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover"
+        style={{
+          filter: 'grayscale(1) brightness(0.42) contrast(1.1)',
+          animation: 'kenburns 24s ease-out infinite alternate',
+          transformOrigin: '52% 48%',
+        }}
+      />
+
+      {/* WebGL overlay — grain + sparse glyph rain (kept as a texture pass, not the main visual) */}
       <ShaderOverlay containerRef={ref} />
 
       {/* Top + bottom edge gradients for legibility */}
