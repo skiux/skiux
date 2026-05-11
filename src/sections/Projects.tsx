@@ -1,18 +1,18 @@
 import Reveal from '../components/Reveal';
+import SectionLabel from '../components/SectionLabel';
 import { site } from '../content/site';
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative w-full bg-bone py-[18vh]">
+    <section
+      id="projects"
+      data-section="work"
+      data-tone="light"
+      className="relative w-full bg-bone py-[18vh]"
+    >
       <div className="grid w-full grid-cols-12 gap-6 px-6 md:px-10">
         <Reveal className="col-span-12 md:col-span-3 md:col-start-2">
-          <div
-            className="text-[11px] uppercase tracking-[0.32em] text-ash/80"
-            style={{ fontFamily: 'var(--font-mono)' }}
-          >
-            <span className="mr-3 text-warm-gray">§ 03</span>
-            Selected work
-          </div>
+          <SectionLabel section="work" index="§ 07" state="awaiting commits" level="warn" />
           <p
             className="mt-8 max-w-[18ch] text-[15px] leading-[1.55] text-ash"
             style={{ fontFamily: 'var(--font-serif)' }}

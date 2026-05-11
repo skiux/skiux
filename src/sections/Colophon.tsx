@@ -1,18 +1,18 @@
 import Reveal from '../components/Reveal';
+import SectionLabel from '../components/SectionLabel';
 import { site } from '../content/site';
 
 export default function Colophon() {
   return (
-    <section id="colophon" className="relative w-full bg-paper py-[18vh]">
+    <section
+      id="colophon"
+      data-section="colophon"
+      data-tone="light"
+      className="relative w-full bg-paper py-[18vh]"
+    >
       <div className="grid w-full grid-cols-12 gap-6 px-6 md:px-10">
         <Reveal className="col-span-12 md:col-span-3 md:col-start-2">
-          <div
-            className="text-[11px] uppercase tracking-[0.32em] text-ash/80"
-            style={{ fontFamily: 'var(--font-mono)' }}
-          >
-            <span className="mr-3 text-warm-gray">§ 04</span>
-            Colophon
-          </div>
+          <SectionLabel section="colophon" index="§ 08" state="loaded" />
           <h2
             className="mt-6 leading-[0.92] tracking-[-0.02em] text-charcoal"
             style={{
