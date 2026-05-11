@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import Reveal from '../components/Reveal';
-import MaskReveal from '../components/MaskReveal';
 import SectionLabel from '../components/SectionLabel';
 import { site } from '../content/site';
 
@@ -20,15 +19,16 @@ export default function Manifesto() {
 
         {/* Body — cols 2–8, deliberately not centered */}
         <div className="col-span-12 md:col-span-9 md:col-start-2">
-          <MaskReveal
-            mode="words"
-            delay={0.05}
-            duration={1.0}
-            as="p"
-            className="mt-8 max-w-[28ch] text-balance text-[28px] leading-[1.28] tracking-[-0.015em] text-charcoal md:max-w-[22ch] md:text-[52px] md:leading-[1.12]"
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-15% 0px' }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8 max-w-[34ch] text-balance text-[26px] leading-[1.32] tracking-[-0.015em] text-charcoal md:max-w-[26ch] md:text-[46px] md:leading-[1.18]"
+            style={{ fontFamily: 'var(--font-serif)', fontWeight: 400 }}
           >
             {site.manifesto}
-          </MaskReveal>
+          </motion.p>
 
           {/* Hashtag chips */}
           <motion.ul
